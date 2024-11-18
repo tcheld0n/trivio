@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <h1>Trivia Game</h1>
+
+    <!-- Exibir perguntas -->
+    {% if questions %}
+        {% for question in questions %}
+            <div style="margin-bottom: 20px;">
+                <!-- Pergunta -->
+                <h3>{{ question.question }}</h3>
+                <!-- Opções -->
+                <ul>
+                    {% for option in question.options %}
+                        <li>{{ option }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No questions available at the moment.</p>
+    {% endif %}
+</body>
+</html>
